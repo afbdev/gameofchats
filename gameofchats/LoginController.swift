@@ -11,7 +11,8 @@ import Firebase
 
 class LoginController: UIViewController {
     
-    
+    var messagesController: MessagesController?
+
     
     let inputsContainerView: UIView = {
         let view = UIView()

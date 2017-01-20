@@ -33,16 +33,23 @@ class MessagesController: UITableViewController {
         if FIRAuth.auth()?.currentUser?.uid == nil {
             perform(#selector(handleLogout), with: nil, afterDelay: 0)
         } else {
-            let uid = FIRAuth.auth()?.currentUser?.uid
-            FIRDatabase.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
-                
-                if let dictionary = snapshot.value as? [String: AnyObject] {
-                    self.navigationItem.title = dictionary["name"] as? String
-                }
-                
-            }, withCancel: nil)
+            
         }
     }
+    
+    func fetchUserAndSetupNavBarTitle() {
+        guard let uid = FIRAuth.auth()?.currentUser?.uid else {
+            return
+        }
+        FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                self.navigationItem.title = dictionary["name"] as? String
+            }
+            
+        }, withCancel: nil)
+    }
+    
     
     func handleLogout() {
         
@@ -53,6 +60,7 @@ class MessagesController: UITableViewController {
         }
         
         let loginController = LoginController()
+        loginController.messagesController = self
         present(loginController, animated: true, completion: nil)
     }
 
