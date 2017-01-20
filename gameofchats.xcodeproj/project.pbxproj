@@ -18,6 +18,7 @@
 		4F0145121E3122D100F35662 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0145111E3122D100F35662 /* User.swift */; };
 		4F0145151E313F2500F35662 /* LoginController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0145141E313F2500F35662 /* LoginController+handlers.swift */; };
 		4F0145181E3166B300F35662 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0145171E3166B300F35662 /* Extensions.swift */; };
+		4F1527631E3293EE005279E0 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1527621E3293EE005279E0 /* ChatLogController.swift */; };
 		EB4E7A180D315EA6DA40F00C /* Pods_gameofchats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25272643C32CAFAA22F7EB0F /* Pods_gameofchats.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		4F0145131E3124B300F35662 /* gameofchats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = gameofchats.entitlements; sourceTree = "<group>"; };
 		4F0145141E313F2500F35662 /* LoginController+handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginController+handlers.swift"; sourceTree = "<group>"; };
 		4F0145171E3166B300F35662 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4F1527621E3293EE005279E0 /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		CBFBB0B54A53506F047461EB /* Pods-gameofchats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gameofchats.release.xcconfig"; path = "Pods/Target Support Files/Pods-gameofchats/Pods-gameofchats.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				4F0144F91E301F0800F35662 /* MessagesController.swift */,
 				4F01450E1E311F1C00F35662 /* NewMessageController.swift */,
 				4F0145141E313F2500F35662 /* LoginController+handlers.swift */,
+				4F1527621E3293EE005279E0 /* ChatLogController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F1527631E3293EE005279E0 /* ChatLogController.swift in Sources */,
 				4F01450F1E311F1C00F35662 /* NewMessageController.swift in Sources */,
 				4F0144FA1E301F0800F35662 /* MessagesController.swift in Sources */,
 				4F0145151E313F2500F35662 /* LoginController+handlers.swift in Sources */,
