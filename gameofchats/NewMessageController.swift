@@ -28,6 +28,7 @@ class NewMessageController: UITableViewController {
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let user = User()
+                user.id = snapshot.key
                 user.setValuesForKeys(dictionary)
                 self.users.append(user)
                 
@@ -70,7 +71,21 @@ class NewMessageController: UITableViewController {
         return 72
     }
     
+    var messagesController: MessagesController?
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dismiss(animated: true) { 
+            let user = self.users[indexPath.row]
+            self.messagesController?.showChatControllerForUser(user: user)
+        }
+    }
+    
 }
+
+
+
+
+
+
 
 class UserCell: UITableViewCell {
     
