@@ -59,14 +59,10 @@ class NewMessageController: UITableViewController {
         cell.detailTextLabel?.text = user.email
         
         if let profileImageUrl = user.profileImageUrl {
-            
             cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
-
         }
-        
         return cell
     }
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
     }
@@ -78,6 +74,8 @@ class NewMessageController: UITableViewController {
             self.messagesController?.showChatControllerForUser(user: user)
         }
     }
+    
+    
     
 }
 

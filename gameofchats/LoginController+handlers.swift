@@ -27,7 +27,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
         }
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
-                print(error)
+                print(error!)
                 return
             }
             // successfully logged in user
@@ -43,7 +43,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
         }
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error) in
             if error != nil {
-                print(error)
+                print(error!)
                 return
             }
             guard let uid = user?.uid else {
@@ -57,7 +57,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
             if let profileImage = self.profileImageView.image, let uploadData = UIImageJPEGRepresentation(profileImage, 0.1) {
                 storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
                     if error != nil {
-                        print(error)
+                        print(error!)
                         return
                     }
                     if let profileImageUrl = metadata?.downloadURL()?.absoluteString {
@@ -74,7 +74,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
         let usersReference = ref.child("users").child(uid)
         usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
             if err != nil {
-                print(err)
+                print(err!)
                 return
             }
 //            self.messagesController?.fetchUserAndSetupNavBarTitle()

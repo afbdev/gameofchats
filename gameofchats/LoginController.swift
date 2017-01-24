@@ -14,6 +14,8 @@ class LoginController: UIViewController {
     var messagesController: MessagesController?
 
     
+    // VIEW STRUCTURES
+    
     let inputsContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.white
@@ -33,9 +35,6 @@ class LoginController: UIViewController {
         
         return button
     }()
-    
-    
-    
     let nameTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Name"
@@ -72,15 +71,10 @@ class LoginController: UIViewController {
         imageView.image = UIImage(named: "gameofthrones_splash")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
         imageView.isUserInteractionEnabled = true
-        
         return imageView
     }()
-    
-    
-    
     let loginRegisterSegmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Login", "Register"])
         sc.translatesAutoresizingMaskIntoConstraints = false
@@ -89,6 +83,7 @@ class LoginController: UIViewController {
         sc.addTarget(self, action: #selector(handleLoginRegisterChange), for: .valueChanged)
         return sc
     }()
+    
     func handleLoginRegisterChange() {
         let title = loginRegisterSegmentedControl.titleForSegment(at: loginRegisterSegmentedControl.selectedSegmentIndex)
         loginRegisterButton.setTitle(title, for: .normal)
@@ -112,12 +107,13 @@ class LoginController: UIViewController {
         profileImageViewBottomAnchor?.isActive = false
         profileImageViewBottomAnchor = profileImageView.bottomAnchor.constraint(equalTo: loginRegisterSegmentedControl.topAnchor, constant: index == 0 ? -37 : -12)
         profileImageViewBottomAnchor?.isActive = true
-        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,13 +124,15 @@ class LoginController: UIViewController {
         view.addSubview(profileImageView)
         view.addSubview(loginRegisterSegmentedControl)
         
-        
         setupInputsContainerView()
         setupLoginRegisterButton()
         setupProfileImageView()
         setupLoginRegisterSegmentedControl()
-        
     }
+    
+    
+    
+    // VIEW CONSTRAINTS
     
     func setupLoginRegisterSegmentedControl() {
         loginRegisterSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -214,17 +212,7 @@ class LoginController: UIViewController {
         loginRegisterButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
-    
-    
-    
 }
-
-
-
-
-
-
-
 
 
 extension UIColor {
