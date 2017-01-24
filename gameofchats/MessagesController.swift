@@ -51,9 +51,9 @@ class MessagesController: UITableViewController {
                     message.setValuesForKeys(dictionary)
                     self.messages.append(message)
                     
-                    // video 10, 22:00
-                    if let toId = message.toId {
-                        self.messagesDictionary[toId] = message
+                    // video 10, 22:00; video 13, 23:00
+                    if let chatPartnerId = message.chatPartnerId() {
+                        self.messagesDictionary[chatPartnerId] = message
                         
                         self.messages = Array(self.messagesDictionary.values)
                         self.messages.sort(by: { (message1, message2) -> Bool in
