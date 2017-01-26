@@ -59,8 +59,7 @@ class MessagesController: UITableViewController {
         
         messageReference.observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                let message = Message()
-                message.setValuesForKeys(dictionary)
+                let message = Message(dictionary: dictionary)
                 self.messages.append(message)
                 
                 // video 10, 22:00; video 13, 23:00
